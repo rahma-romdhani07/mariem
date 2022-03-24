@@ -1,0 +1,21 @@
+<div class="container" style="margin-top: 70px;">
+  <table  border=1   class="table table-hover">
+    <tr>
+      <th> Image </th>
+      <th> Id</th>
+      <th> nom</th>
+      <th>Prix </th>
+      <th> Quantite </th> 
+    </tr>
+    <tr></tr>
+   <tr>
+    <td><img [src]=produit.urlImg width="150px" height="100px"></td>
+ 
+ <td>&nbsp;&nbsp;{{produit.id}}</td>
+ <td>{{produit.nom|uppercase}} </td>
+ <td>{{produit.prix|currency :'TND':'symbol':'3.2-2' }}</td>
+ <td>   {{produit.quantite }}</td>
+</tr>
+  </table>
+  <br>
+<button class="btn btn-primary" (click)=retour()> Router</button>

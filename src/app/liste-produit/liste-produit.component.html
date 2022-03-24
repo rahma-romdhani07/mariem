@@ -1,0 +1,97 @@
+﻿<div class="form-group">
+<p align ="center"><strong class ="bg">Mot Clé &nbsp;&nbsp;</strong> <input type="text" [(ngModel)]="texte" class="from-control"  size="50px" placeholder="Nom de Produit"></p><br><br>
+</div>
+  
+
+<div class="container" style="margin-top: 20px;">
+<table  *ngIf="produitF ;else vide"   class="table table-hover"border=4 >
+  <tr>
+    <th>
+      <button class="btn  btn-outline-danger" (click)=afficher() > {{valeurB}}</button>
+    </th>
+    <th>
+      Id
+    </th>
+    <th>
+      Nom
+    </th>
+    <th>
+      Prix
+    </th>
+    <th>
+      Quantite
+    </th>
+    <th>
+     Action
+    </th>
+  </tr>
+  <tr *ngFor ="let elt of produitF" [ngStyle]="{color : getColor(elt.quantite)}">
+    <td>
+       <img  *ngIf ="valeurB=='masquer'" src={{url+elt.id}} width="100px" height="100px">
+    </td>
+    <td>
+      &nbsp;&nbsp;{{elt.id}}
+    </td>
+    <td>
+      <a routerLink ="/productsDetail/{{elt.id}}">{{elt.nom|uppercase}} </a>
+    </td><td>
+      {{elt.prix|currency :'TND':'symbol':'3.2-2' }}
+    </td><td>
+      {{elt.quantite }}
+    </td>
+    
+    <td>
+    <!--<a routerLink ="/productsDetail/{{elt.id}}" onclick="supprimer()">Delete </a>-->
+    <button class="fa fa-trash btn btn-outline-danger " (click)=supprimer(elt.id) >Delete</button>&nbsp;&nbsp;&nbsp;
+    <a  routerLink ="/update/{{elt.id}}" onclick="modifier()"  class="btn btn-info">
+      Edit
+  </a> 
+   <!-- <button class="btn btn-success fa fa-edit far fa-trash-alt " (click)=modifier(elt.id) >Edit</button>-->
+    </td>
+  </tr>
+</table>
+<ng-template #vide ><h1 style="color: red;"><u>Tableau Vide</u> </h1></ng-template>
+<br><br>
+<table *ngIf="product" class="table table-hover" border=3>
+  <tr>
+    <th>
+      Image
+    </th>
+    <th>
+      Id
+    </th>
+    <th>
+      Nom
+    </th>
+    <th>
+      Prix
+    </th>
+    <th>
+      Quantite
+    </th>
+  </tr>
+    <tr >
+    <td>
+       <img [src]=product.urlImg width="100px" height="100px">
+    </td>
+    <td>
+      &nbsp;&nbsp;{{product.id}}
+    </td>
+    <td>
+      {{product.prix}}
+    </td><td>
+      {{product.prix}}
+    </td><td>
+      {{product.quantite }}
+    </td>
+    <td>
+  
+     
+    </td>
+  </tr>
+</table>
+<!-- |currency :'TND':'symbol':'3.2-2' -->
+
+rahmaromdhani08@gmail.com
+
+95081975
